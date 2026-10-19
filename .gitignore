@@ -1,0 +1,39 @@
+# ---- big or generated data at the repo root (never commit) ----
+/dataset/
+/dataset_pilot/
+/data/
+/outputs/
+/runs/
+/upload/
+*.npz
+# trained checkpoints, except the two released weight files
+*.pt
+!/weights/*.pt
+
+# ---- DocUNet evaluation code unpacked + compiled by setup_octave_eval.sh ----
+/evaluation/docunet/octave/docunet_eval/
+
+# ---- Python / Jupyter ----
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+*.egg-info/
+.venv/
+venv/
+
+# ---- LaTeX build files ----
+/paper/*.aux
+/paper/*.log
+/paper/*.bbl
+/paper/*.blg
+/paper/*.out
+/paper/*.fls
+/paper/*.fdb_latexmk
+/paper/*.synctex.gz
+
+# ---- OS / editors ----
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

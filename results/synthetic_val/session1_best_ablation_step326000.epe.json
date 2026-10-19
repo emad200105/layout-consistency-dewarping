@@ -1,0 +1,37 @@
+{
+  "ckpt": "runs\\abl1",
+  "split": "val",
+  "full_val": true,
+  "n": 2737,
+  "epe_by_profile": {
+    "combined": 5.886377761816476,
+    "cylinder": 2.6622485644809415,
+    "flat": 2.822728728546816,
+    "perspective": 3.699864447050698,
+    "ALL": 4.067176822636918
+  },
+  "counts": {
+    "cylinder": 901,
+    "perspective": 901,
+    "combined": 901,
+    "flat": 34
+  },
+  "layout_metric": {
+    "loss": 0.6064955348712068,
+    "horizontal": 0.2967977007461149,
+    "vertical": 0.3096978355112464,
+    "by_profile": {
+      "combined": 0.7931703037797169,
+      "cylinder": 0.3226599772972418,
+      "flat": 0.3168151345761383,
+      "perspective": 0.42633173876461655
+    },
+    "counts": {
+      "cylinder": 901,
+      "perspective": 901,
+      "combined": 901,
+      "flat": 34
+    },
+    "n": 2737
+  }
+}

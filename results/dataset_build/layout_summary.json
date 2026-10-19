@@ -1,0 +1,39 @@
+{
+  "tool": "prepare_layout.py",
+  "layout_version": 1,
+  "utc": "2026-09-12T20:04:02Z",
+  "json": "data/publaynet/train.json",
+  "train_w": 448,
+  "train_h": 576,
+  "n_local": 47958,
+  "n_landscape": 234,
+  "drop_landscape": true,
+  "n_pages_considered": 47724,
+  "n_annotation_records": 3263046,
+  "n_kept": 465605,
+  "n_degenerate_bbox": 9,
+  "n_multi_polygon": 0,
+  "n_clamped_coords": 6,
+  "category_counts": {
+    "1": 334171,
+    "5": 15653,
+    "2": 89709,
+    "4": 14457,
+    "3": 11615
+  },
+  "n_pages": 47724,
+  "n_annotations": 465596,
+  "n_polygon_points": 10686921,
+  "bytes_on_disk": 57420385,
+  "overlays": [
+    "layout_PMC1064098_00000.png",
+    "layout_PMC1064103_00000.png",
+    "layout_PMC1064139_00007.png",
+    "layout_PMC1064139_00008.png",
+    "layout_PMC1064866_00001.png",
+    "layout_PMC1079789_00003.png",
+    "layout_PMC1079791_00000.png",
+    "layout_PMC1079906_00003.png"
+  ],
+  "problems": []
+}

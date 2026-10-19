@@ -1,0 +1,175 @@
+diff -ruN a/SIFTflow/SIFTflowc2f.m b/SIFTflow/SIFTflowc2f.m
+--- a/SIFTflow/SIFTflowc2f.m
++++ b/SIFTflow/SIFTflowc2f.m
+@@ -67,8 +67,8 @@
+ end
+ 
+ for i=2:nlevels
+-    pyrd(i).im1=imresize(imfilter(pyrd(i-1).im1,fspecial('gaussian',5,0.67),'same','replicate'),0.5,'bicubic');
+-    pyrd(i).im2=imresize(imfilter(pyrd(i-1).im2,fspecial('gaussian',5,0.67),'same','replicate'),0.5,'bicubic');
++    pyrd(i).im1=imresize(imfilter_nd(pyrd(i-1).im1,fspecial('gaussian',5,0.67),'same','replicate'),0.5,'bicubic');
++    pyrd(i).im2=imresize(imfilter_nd(pyrd(i-1).im2,fspecial('gaussian',5,0.67),'same','replicate'),0.5,'bicubic');
+ %     pyrd(i).im1 = reduceImage(pyrd(i-1).im1);
+ %     pyrd(i).im2 = reduceImage(pyrd(i-1).im2);
+     if IsSegmentation
+diff -ruN a/SIFTflow/mexDenseSIFT/Image.h b/SIFTflow/mexDenseSIFT/Image.h
+--- a/SIFTflow/mexDenseSIFT/Image.h
++++ b/SIFTflow/mexDenseSIFT/Image.h
+@@ -1648,7 +1648,7 @@
+ void Image<T>::LoadMatlabImageCore(const mxArray *image,bool IsImageScaleCovnersion)
+ {
+ 	int nDim = mxGetNumberOfDimensions(image);
+-	const int* imDim = mxGetDimensions(image);
++	const mwSize* imDim = mxGetDimensions(image);
+ 	if(nDim==2)
+ 		allocate(imDim[1],imDim[0]);
+ 	else if(nDim==3)
+@@ -1757,7 +1757,7 @@
+ template <class T>
+ void Image<T>::OutputToMatlab(mxArray *&matrix) const
+ {
+-	int dims[3];
++	mwSize dims[3];
+ 	dims[0]=imHeight;
+ 	dims[1]=imWidth;
+ 	dims[2]=nChannels;
+diff -ruN a/SIFTflow/mexDenseSIFT/Matrix.cpp b/SIFTflow/mexDenseSIFT/Matrix.cpp
+--- a/SIFTflow/mexDenseSIFT/Matrix.cpp
++++ b/SIFTflow/mexDenseSIFT/Matrix.cpp
+@@ -397,7 +397,7 @@
+ 	int nElements = mxGetNumberOfDimensions(prhs);
+ 	if(nElements>2)
+ 		mexErrMsgTxt("A matrix is expected to be loaded!");
+-	const int* dims = mxGetDimensions(prhs);
++	const mwSize* dims = mxGetDimensions(prhs);
+ 	allocate(dims[0],dims[1]);
+ 	double* data = (double*)mxGetData(prhs);
+ 	for(int i =0; i<nRow; i++)
+@@ -407,7 +407,7 @@
+ 
+ void Matrix::writeMatrix(mxArray*& plhs) const
+ {
+-	int dims[2];
++	mwSize dims[2];
+ 	dims[0]=nRow;dims[1]=nCol;
+ 	plhs=mxCreateNumericArray(2, dims,mxDOUBLE_CLASS, mxREAL);
+ 	double* data = (double *)mxGetData(plhs);
+diff -ruN a/SIFTflow/mexDenseSIFT/Matrix.h b/SIFTflow/mexDenseSIFT/Matrix.h
+--- a/SIFTflow/mexDenseSIFT/Matrix.h
++++ b/SIFTflow/mexDenseSIFT/Matrix.h
+@@ -2,7 +2,7 @@
+ #define _Matrix_h
+ 
+ #include "stdio.h"
+-#include "vector.h"
++#include "Vector.h"
+ #include "project.h"
+ #ifdef _QT
+ 	#include <QFile>
+diff -ruN a/SIFTflow/mexDenseSIFT/Vector.cpp b/SIFTflow/mexDenseSIFT/Vector.cpp
+--- a/SIFTflow/mexDenseSIFT/Vector.cpp
++++ b/SIFTflow/mexDenseSIFT/Vector.cpp
+@@ -268,7 +268,7 @@
+ 	int nElements = mxGetNumberOfDimensions(prhs);
+ 	if(nElements>2)
+ 		mexErrMsgTxt("A vector is expected to be loaded!");
+-	const int* dims = mxGetDimensions(prhs);
++	const mwSize* dims = mxGetDimensions(prhs);
+ 	nDim = dims[0]*dims[1];
+ 	pData = new double[nDim];
+ 	memcpy(pData,(double*)mxGetData(prhs),sizeof(double)*nDim);
+@@ -276,7 +276,7 @@
+ 
+ void Vector::writeVector(mxArray*& plhs) const
+ {
+-	int dims[2];
++	mwSize dims[2];
+ 	dims[0]=nDim;dims[1]=1;
+ 	plhs=mxCreateNumericArray(2, dims,mxDOUBLE_CLASS, mxREAL);
+     memcpy((double *)mxGetData(plhs),pData,sizeof(double)*nDim);
+diff -ruN a/SIFTflow/mexDenseSIFT/project.h b/SIFTflow/mexDenseSIFT/project.h
+--- a/SIFTflow/mexDenseSIFT/project.h
++++ b/SIFTflow/mexDenseSIFT/project.h
+@@ -2,8 +2,8 @@
+ #include "stdio.h"
+ 
+ // if the files are compiled in linux or mac os then uncomment the following line, otherwise comment it if you compile using visual studio in windows
+- //#define _LINUX_MAC
+-#define _OPENCV
++#define _LINUX_MAC
++//#define _OPENCV
+ 
+ template <class T>
+ void _Release1DBuffer(T* pBuffer)
+diff -ruN a/SIFTflow/mexDiscreteFlow/Image.h b/SIFTflow/mexDiscreteFlow/Image.h
+--- a/SIFTflow/mexDiscreteFlow/Image.h
++++ b/SIFTflow/mexDiscreteFlow/Image.h
+@@ -1449,7 +1449,7 @@
+ void Image<T>::LoadMatlabImageCore(const mxArray *image,bool IsImageScaleCovnersion)
+ {
+ 	int nDim = mxGetNumberOfDimensions(image);
+-	const int* imDim = mxGetDimensions(image);
++	const mwSize* imDim = mxGetDimensions(image);
+ 	if(nDim==2)
+ 		allocate(imDim[1],imDim[0]);
+ 	else if(nDim==3)
+@@ -1557,7 +1557,7 @@
+ template <class T>
+ void Image<T>::OutputToMatlab(mxArray *&matrix)
+ {
+-	int dims[3];
++	mwSize dims[3];
+ 	dims[0]=imHeight;
+ 	dims[1]=imWidth;
+ 	dims[2]=nChannels;
+diff -ruN a/SIFTflow/mexDiscreteFlow/mexDiscreteFlow.cpp b/SIFTflow/mexDiscreteFlow/mexDiscreteFlow.cpp
+--- a/SIFTflow/mexDiscreteFlow/mexDiscreteFlow.cpp
++++ b/SIFTflow/mexDiscreteFlow/mexDiscreteFlow.cpp
+@@ -5,7 +5,7 @@
+ 
+ double* outputMatrix2(mxArray*& plhs,int n1,int n2)
+ {
+-	int dims[2];
++	mwSize dims[2];
+ 	dims[0]=n1;
+ 	dims[1]=n2;
+ 	plhs=mxCreateNumericArray(2,dims,mxDOUBLE_CLASS,mxREAL);
+@@ -14,7 +14,7 @@
+ 
+ double* outputMatrix3(mxArray*& plhs,int n1,int n2,int n3)
+ {
+-	int dims[3];
++	mwSize dims[3];
+ 	dims[0]=n1;
+ 	dims[1]=n2;
+ 	dims[2]=n3;
+@@ -24,7 +24,7 @@
+ 
+ double* outputMatrix4(mxArray*& plhs,int n1,int n2,int n3,int n4)
+ {
+-	int dims[4];
++	mwSize dims[4];
+ 	dims[0]=n1;
+ 	dims[1]=n2;
+ 	dims[2]=n3;
+@@ -55,7 +55,7 @@
+         int nDims=mxGetNumberOfDimensions(prhs[2]);
+ 		if(nDims>2)
+ 			mexErrMsgTxt("The third parameter must be a vector!");
+-		const int* dims=mxGetDimensions(prhs[2]);
++		const mwSize* dims = mxGetDimensions(prhs[2]);
+ 		if(dims[0]!=1 && dims[1]!=1)
+ 			mexErrMsgTxt("The third parameter must be a vector!");
+ 		int nPara=dims[0]+dims[1]-1;
+diff -ruN a/SIFTflow/mexDiscreteFlow/project.h b/SIFTflow/mexDiscreteFlow/project.h
+--- a/SIFTflow/mexDiscreteFlow/project.h
++++ b/SIFTflow/mexDiscreteFlow/project.h
+@@ -2,7 +2,7 @@
+ #include "stdio.h"
+ 
+ // if the files are compiled in linux or mac os then uncomment the following line, otherwise comment it if you compile using visual studio in windows
+-//#define _LINUX_MAC
++#define _LINUX_MAC
+ 
+ template <class T>
+ void _Release1DBuffer(T* pBuffer)

@@ -1,0 +1,16 @@
+# Core (data generation, training, inference). Training used torch 2.10 + CUDA 12.8
+# on Kaggle; inference and evaluation were run with torch 2.x on CPU.
+torch>=2.1
+numpy>=1.24
+opencv-python>=4.8
+scipy>=1.10
+Pillow>=9.0
+
+# Evaluation and figures
+matplotlib>=3.7
+pandas>=2.0
+pytesseract>=0.3.8      # needs the tesseract binary; see evaluation/docunet/install_tesseract_501.sh
+rapidfuzz>=3.0          # Levenshtein distance for OCR edit distance / CER
+
+# Optional: uploading the dataset to Kaggle (tools/prepare_upload.py)
+# kaggle>=1.6

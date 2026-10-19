@@ -1,0 +1,31 @@
+{
+  "tool": "verify_dataset.py",
+  "utc": "2026-09-12T20:16:52Z",
+  "root": "dataset",
+  "n_samples": 145313,
+  "n_checked": 60,
+  "ok": true,
+  "failures": [],
+  "meta": {
+    "format_version": 2,
+    "page_w": 448,
+    "page_h": 576,
+    "flow_w": 112,
+    "flow_h": 144,
+    "flow_dtype": "float16",
+    "flow_units": "normalized displacement, grid_sample convention",
+    "jpeg_quality": 90,
+    "n_samples": 145313,
+    "n_sources": 47958,
+    "variants_per_source": 3,
+    "flat_frac": 0.03,
+    "seed": 42,
+    "profiles": [
+      "cylinder",
+      "perspective",
+      "combined",
+      "flat"
+    ],
+    "built_utc": "2026-09-12T20:01:47Z"
+  }
+}

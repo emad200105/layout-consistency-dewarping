@@ -1,0 +1,89 @@
+==========================================================================
+images folder : data\publaynet\train   (47,958 images)
+annotations   : data\publaynet\train.json
+outputs       : annotation_check
+==========================================================================
+
+1. census of local image dimensions (JPEG header read, no decode)
+     ... 10,000
+     ... 20,000
+     ... 30,000
+     ... 40,000
+   297 distinct size(s) across 47,958 images in 518.5s
+       596x791       9,266 ( 19.32%)  aspect 0.7535   stretch @448x576 1.0323x
+       612x792       8,790 ( 18.33%)  aspect 0.7727   stretch @448x576 1.0065x
+       596x794       7,601 ( 15.85%)  aspect 0.7506   stretch @448x576 1.0362x
+       596x842       3,394 (  7.08%)  aspect 0.7078   stretch @448x576 1.0988x
+       601x792       3,032 (  6.32%)  aspect 0.7588   stretch @448x576 1.0250x
+       596x783       2,424 (  5.05%)  aspect 0.7612   stretch @448x576 1.0218x
+       596x780       1,118 (  2.33%)  aspect 0.7641   stretch @448x576 1.0179x
+       440x667         872 (  1.82%)  aspect 0.6597   stretch @448x576 1.1790x
+       601x800         798 (  1.66%)  aspect 0.7512   stretch @448x576 1.0353x
+       613x791         764 (  1.59%)  aspect 0.7750   stretch @448x576 1.0036x
+       585x783         740 (  1.54%)  aspect 0.7471   stretch @448x576 1.0410x
+       594x792         659 (  1.37%)  aspect 0.7500   stretch @448x576 1.0370x
+     ... and 285 more
+
+2. annotation file structure
+   file: data\publaynet\train.json  (1.696 GB)
+     images       : bytes 12..27,417,934
+     annotations  : bytes 27,417,953..1,696,001,800
+     categories   : bytes 1,696,001,818..1,696,002,060
+
+3. matching local stems against the annotation file
+     ... 100,000 image records, 14,286 matched
+     ... 200,000 image records, 28,572 matched
+     ... 300,000 image records, 42,857 matched
+   image records in file : 335,703
+   matched local stems   : 47,958 of 47,958 (100.00%)
+   sizes recorded in the file (top 6):
+       596x791      65,004 ( 19.36%)
+       612x792      61,690 ( 18.38%)
+       596x794      53,028 ( 15.80%)
+       596x842      23,883 (  7.11%)
+       601x792      21,274 (  6.34%)
+       596x783      16,928 (  5.04%)
+
+4. recorded vs actual dimensions, for the matched images
+     exact    : 47,958 (100.00%)
+     differs  : 0 (0.00%)
+   VERDICT: dimensions match. Annotations are in the same
+            pixel space as these images.
+
+5. annotations for the matched images
+     ... 1,000,000 annotation records
+     ... 2,000,000 annotation records
+     ... 3,000,000 annotation records
+   annotation records in file : 3,263,046
+   for the matched images     : 466,221 (9.7 per image)
+     1 text       334,530 (71.75%)
+     2 title       89,730 (19.25%)
+     3 list        11,615 ( 2.49%)
+     4 table       14,681 ( 3.15%)
+     5 figure      15,665 ( 3.36%)
+   segmentation polygons: 22.4 points mean, max 194  (bboxes present on all)
+
+6. overlays — the part that actually decides it
+   wrote 12 overlay(s):
+     overlay_PMC3866684_00002.png
+     overlay_PMC3866684_00013.png
+     overlay_PMC5707887_00000.png
+     overlay_PMC5634440_00001.png
+     overlay_PMC5707882_00007.png
+     overlay_PMC6098134_00003.png
+     overlay_PMC5707891_00002.png
+     overlay_PMC5910381_00005.png
+     overlay_PMC6039440_00002.png
+     overlay_PMC5604742_00003.png
+     overlay_PMC5538316_00002.png
+     overlay_PMC5707886_00001.png
+
+   OPEN THEM. Boxes sitting exactly on the text blocks means the
+   annotations are usable. Shifted or mis-scaled boxes mean they
+   are not, and a different image download is needed.
+
+==========================================================================
+Structural checks passed. The overlays are the final word.
+
+report  : annotation_check\report.txt
+summary : annotation_check\summary.json

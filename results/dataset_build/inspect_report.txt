@@ -1,0 +1,80 @@
+inspect_dataset.py   root=publaynet   seed=5
+python=3.11.15  numpy=2.4.4  opencv=4.13.0
+
+========================================================================
+FOLDER LAYOUT under publaynet
+========================================================================
+./   images=12  other=0  subdirs=0
+
+========================================================================
+IMAGE INVENTORY
+========================================================================
+  Image files        : 12
+  Total on disk      : 0.00 GB
+  Mean file size     : 255.4 KB
+  Example filenames  :
+       PMC544398_00002.jpg
+       PMC534804_00002.jpg
+       PMC514616_00000.jpg
+       PMC524025_00003.jpg
+       PMC509424_00001.jpg
+  Extensions present : {'.jpg': 12}
+
+------------------------------------------------------------------------
+DIMENSION DISTRIBUTION  (sampled 12 of 12)
+------------------------------------------------------------------------
+  Most common (width x height):
+      612 x   792      12 imgs  (100.0%)
+
+  width  : min=612  p25=612  median=612  p75=612  max=612
+  height : min=792  p25=792  median=792  p75=792  max=792
+  distinct sizes in sample : 1
+  median aspect ratio (w/h): 0.773
+  -> 448x576 resize implies a horizontal stretch of 1.0065x   (a 512x512 square would be 1.2941x)
+
+========================================================================
+LIVE PIPELINE CHECK — 4 random real images @ 448x576
+  profiles: cylinder, perspective, combined, flat
+========================================================================
+  [1/4] PMC519024_00007.jpg   native 612x792  ->  448x576
+        v0 cylinder    |dx|max= 68.17 |dy|max=139.33 mean=73.41px  page= 62.9%  float32  label_exact=YES
+        v1 perspective |dx|max= 83.69 |dy|max=139.77 mean=58.59px  page= 69.5%  float32  label_exact=YES
+        v2 combined    |dx|max= 51.24 |dy|max= 60.26 mean=33.45px  page= 85.9%  float32  label_exact=YES
+        v3 flat        |dx|max= 50.69 |dy|max= 60.74 mean=37.40px  page=100.0%  float32  label_exact=YES
+  [2/4] PMC509424_00001.jpg   native 612x792  ->  448x576
+        v0 cylinder    |dx|max= 68.07 |dy|max= 92.03 mean=38.23px  page= 80.8%  float32  label_exact=YES
+        v1 perspective |dx|max= 30.34 |dy|max= 88.30 mean=27.98px  page= 96.4%  float32  label_exact=YES
+        v2 combined    |dx|max=134.10 |dy|max= 91.50 mean=59.74px  page= 68.2%  float32  label_exact=YES
+        v3 flat        |dx|max=  0.00 |dy|max=  0.00 mean= 0.00px  page=100.0%  float32  label_exact=YES
+  [3/4] PMC522750_00004.jpg   native 612x792  ->  448x576
+        v0 cylinder    |dx|max=177.45 |dy|max=186.18 mean=106.53px  page= 50.7%  float32  label_exact=YES
+        v1 perspective |dx|max= 57.91 |dy|max= 37.35 mean=16.76px  page= 90.6%  float32  label_exact=YES
+        v2 combined    |dx|max= 45.24 |dy|max= 65.25 mean=30.46px  page= 91.7%  float32  label_exact=YES
+        v3 flat        |dx|max=102.40 |dy|max= 94.85 mean=52.14px  page= 70.0%  float32  label_exact=YES
+  [4/4] PMC524364_00006.jpg   native 612x792  ->  448x576
+        v0 cylinder    |dx|max=  7.93 |dy|max=  8.31 mean= 5.07px  page= 99.3%  float32  label_exact=YES
+        v1 perspective |dx|max= 69.26 |dy|max=105.64 mean=58.57px  page=100.0%  float32  label_exact=YES
+        v2 combined    |dx|max= 29.08 |dy|max= 43.74 mean=18.20px  page= 97.2%  float32  label_exact=YES
+        v3 flat        |dx|max= 64.54 |dy|max= 61.94 mean=32.22px  page= 80.5%  float32  label_exact=YES
+
+  Contact sheet written to: real_preview.png
+  Flow labels exact on every sample: YES
+
+========================================================================
+STORAGE PROJECTION   (12 sources x 3 = 36 pairs)
+========================================================================
+  CURRENT on-disk format (full-res PNG + full-res float64 flow):
+    612x792: clean      0 GB | warped       0 GB | flow f64        0 GB | TOTAL        0 GB
+    800x1000: clean      0 GB | warped       0 GB | flow f64        0 GB | TOTAL        1 GB
+
+  PROPOSED (fixed-res JPEG q90 + low-res float16 normalized flow):
+      train res |    flow |    clean |   warped |     flow |     TOTAL
+    --------------------------------------------------------------
+     256x320    | 32x40   |    0.00G |    0.00G |    0.00G |     0.00G
+     320x416    | 40x52   |    0.00G |    0.00G |    0.00G |     0.00G
+     384x480    | 48x60   |    0.00G |    0.00G |    0.00G |     0.00G
+     448x576    | 56x72   |    0.00G |    0.00G |    0.00G |     0.00G   <-- chosen
+     512x512    | 64x64   |    0.00G |    0.00G |    0.00G |     0.00G
+     512x664    | 64x83   |    0.00G |    0.00G |    0.00G |     0.01G
+
+DONE.

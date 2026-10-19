@@ -1,0 +1,17 @@
+{
+  "split": "val",
+  "n": 2737,
+  "identity_epe_px": 39.88215484107808,
+  "by_profile": {
+    "combined": 44.679054631774086,
+    "cylinder": 35.1767909117994,
+    "flat": 21.457003607469446,
+    "perspective": 40.48590770545731
+  },
+  "counts": {
+    "combined": 901,
+    "cylinder": 901,
+    "flat": 34,
+    "perspective": 901
+  }
+}

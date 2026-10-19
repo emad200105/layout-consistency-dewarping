@@ -1,0 +1,49 @@
+OCR EVALUATION — Tesseract 5 LSTM, 3x high-res re-synthesis, reference = OCR(clean page at 3x)
+pages scored 332   dropped (reference < 200 chars) 2
+
+ALL PAGES  (n=332)
+  input      mean CER  63.05%   corpus CER  62.82%   median  71.17%   mean ED  2412.9
+  layout     mean CER  28.61%   corpus CER  22.82%   median  20.52%   mean ED   876.6
+  ablation   mean CER  30.37%   corpus CER  24.55%   median  21.69%   mean ED   942.9
+  true_flow  mean CER  13.70%   corpus CER   9.92%   median   7.03%   mean ED   381.0
+
+cylinder  (n=98)
+  input      mean CER  55.10%   corpus CER  55.44%   median  61.44%   mean ED  2180.0
+  layout     mean CER  32.51%   corpus CER  21.15%   median  17.37%   mean ED   831.6
+  ablation   mean CER  33.44%   corpus CER  21.47%   median  18.25%   mean ED   844.3
+  true_flow  mean CER  11.95%   corpus CER   9.10%   median   7.03%   mean ED   357.8
+
+flat  (n=34)
+  input      mean CER  36.76%   corpus CER  35.15%   median  30.60%   mean ED  1248.0
+  layout     mean CER  24.59%   corpus CER  21.83%   median  19.74%   mean ED   775.2
+  ablation   mean CER  23.62%   corpus CER  21.70%   median  19.19%   mean ED   770.6
+  true_flow  mean CER  11.51%   corpus CER   8.83%   median   5.35%   mean ED   313.5
+
+perspective  (n=100)
+  input      mean CER  65.82%   corpus CER  64.65%   median  70.16%   mean ED  2486.3
+  layout     mean CER  24.97%   corpus CER  22.44%   median  20.26%   mean ED   862.9
+  ablation   mean CER  25.54%   corpus CER  23.36%   median  22.20%   mean ED   898.2
+  true_flow  mean CER  11.66%   corpus CER   9.81%   median   7.72%   mean ED   377.4
+
+combined  (n=100)
+  input      mean CER  77.01%   corpus CER  77.09%   median  77.76%   mean ED  2963.8
+  layout     mean CER  29.78%   corpus CER  25.20%   median  24.39%   mean ED   968.8
+  ablation   mean CER  34.47%   corpus CER  29.72%   median  25.77%   mean ED  1142.7
+  true_flow  mean CER  18.19%   corpus CER  11.19%   median   6.95%   mean ED   430.1
+
+PAIRED: layout arm vs ablation, same pages
+  mean CER  layout 28.61%   ablation 30.37%
+  ablation minus layout: +1.76 pts  (95% bootstrap CI +0.78 to +2.79)
+  relative: ablation has +6.2% more character errors
+  layout better on 203 pages, worse on 126, tied on 3
+  Wilcoxon signed-rank p = 4.552e-06
+  (variation over PAGES only: one training seed per arm)
+
+PAIRED BY PROFILE  (diff = ablation minus layout; >0 means layout arm reads better)
+  cylinder             n= 98  layout  32.5%  ablation  33.4%  diff +0.93 pts [-1.05, +3.08]  rel  +2.9%  wins 54-42  p=0.192
+  flat                 n= 34  layout  24.6%  ablation  23.6%  diff -0.97 pts [-4.37, +1.95]  rel  -3.9%  wins 19-15  p=0.906
+  perspective          n=100  layout  25.0%  ablation  25.5%  diff +0.57 pts [-0.89, +1.86]  rel  +2.3%  wins 56-44  p=0.111
+  combined             n=100  layout  29.8%  ablation  34.5%  diff +4.69 pts [+2.95, +6.62]  rel +15.8%  wins 74-25  p=4.92e-07
+  all except combined  n=232  layout  28.1%  ablation  28.6%  diff +0.50 pts [-0.65, +1.65]  rel  +1.8%  wins 129-101  p=0.0564
+
+Share of the possible improvement (input -> true-flow ceiling) achieved: layout 69.8%, ablation 66.2%

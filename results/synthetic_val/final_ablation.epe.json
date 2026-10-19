@@ -1,0 +1,37 @@
+{
+  "ckpt": "runs\\abl2\\run_nolayout\\ckpt_step000531990.pt",
+  "split": "val",
+  "full_val": true,
+  "n": 2737,
+  "epe_by_profile": {
+    "combined": 5.568368930001634,
+    "cylinder": 2.255779538580633,
+    "flat": 2.5112002930220436,
+    "perspective": 3.2881750494208637,
+    "ALL": 3.6892891120509943
+  },
+  "counts": {
+    "cylinder": 901,
+    "perspective": 901,
+    "combined": 901,
+    "flat": 34
+  },
+  "layout_metric": {
+    "loss": 0.5630592500227828,
+    "horizontal": 0.2725963278045488,
+    "vertical": 0.29046292146018077,
+    "by_profile": {
+      "combined": 0.7470879118913175,
+      "cylinder": 0.29234050421434954,
+      "flat": 0.2791362310595372,
+      "perspective": 0.38189168037075577
+    },
+    "counts": {
+      "cylinder": 901,
+      "perspective": 901,
+      "combined": 901,
+      "flat": 34
+    },
+    "n": 2737
+  }
+}

@@ -1,0 +1,16 @@
+Full validation set, n = 2737   (reduction = (ablation - ours) / ablation)
+                                    ours  ablation  reduction
+-------------------------------------------------------------
+EPE (page px)                      3.662     3.689       0.7%
+C, per-page mean (paper)          0.4398    0.4714       6.7%
+C, batch-pooled (train log)       0.5274    0.5631       6.3%
+  C_h, batch-pooled               0.2492    0.2726       8.6%
+  C_v, batch-pooled               0.2782    0.2905       4.2%
+
+per profile       n  EPE ours     abl     red     C ours     abl     red
+flat             34     2.389   2.511    4.8%     0.2684  0.2791    3.8%
+cylinder        901     2.274   2.256   -0.8%     0.2742  0.2923    6.2%
+perspective     901     3.241   3.288    1.4%     0.3563  0.3819    6.7%
+combined        901     5.519   5.568    0.9%     0.6953  0.7471    6.9%
+
+vs identity (39.88 px): ours 90.8% lower EPE, ablation 90.7%

@@ -1,0 +1,37 @@
+{
+  "ckpt": "runs\\session1",
+  "split": "val",
+  "full_val": true,
+  "n": 2737,
+  "epe_by_profile": {
+    "combined": 5.724881752217385,
+    "cylinder": 2.5080924176349493,
+    "flat": 2.777638447635314,
+    "perspective": 3.5358543647380833,
+    "ALL": 3.9087154610469734
+  },
+  "counts": {
+    "cylinder": 901,
+    "perspective": 901,
+    "combined": 901,
+    "flat": 34
+  },
+  "layout_metric": {
+    "loss": 0.5586514854153921,
+    "horizontal": 0.26606146107579387,
+    "vertical": 0.29259002364652104,
+    "by_profile": {
+      "combined": 0.7292152172637589,
+      "cylinder": 0.30392129608036145,
+      "flat": 0.293890143142027,
+      "perspective": 0.38891725995258475
+    },
+    "counts": {
+      "cylinder": 901,
+      "perspective": 901,
+      "combined": 901,
+      "flat": 34
+    },
+    "n": 2737
+  }
+}

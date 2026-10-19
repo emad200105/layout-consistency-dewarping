@@ -1,0 +1,24 @@
+== epe
+ALL        n=334 lay 3.4376 abl 3.5036 red +1.88% CI[-1.62,+5.58] wins 160-174 p=5.93e-01
+flat       n= 34 lay 2.3894 abl 2.5112 red +4.85% CI[-8.06,+23.50] wins 16-18 p=8.00e-01
+cylinder   n=100 lay 2.2533 abl 2.2884 red +1.53% CI[-3.59,+6.65] wins 48-52 p=5.36e-01
+perspective n=100 lay 3.1180 abl 3.0831 red -1.13% CI[-9.29,+6.77] wins 45-55 p=7.05e-01
+combined   n=100 lay 5.2979 abl 5.4768 red +3.27% CI[-1.79,+8.56] wins 51-49 p=4.21e-01
+== C
+ALL        n=334 lay 0.4276 abl 0.4555 red +6.13% CI[+4.07,+8.24] wins 214-120 p=1.48e-09
+flat       n= 34 lay 0.2684 abl 0.2791 red +3.84% CI[-4.56,+12.69] wins 20-14 p=3.09e-01
+cylinder   n=100 lay 0.2858 abl 0.3060 red +6.59% CI[+3.49,+9.77] wins 69-31 p=8.49e-05
+perspective n=100 lay 0.3630 abl 0.3809 red +4.69% CI[+0.95,+8.66] wins 56-44 p=5.55e-02
+combined   n=100 lay 0.6880 abl 0.7397 red +6.98% CI[+3.63,+10.20] wins 69-31 p=1.08e-05
+== Ch
+ALL        n=334 lay 0.2132 abl 0.2326 red +8.33% CI[+5.57,+11.10] wins 219-114 p=3.46e-10
+flat       n= 34 lay 0.1463 abl 0.1598 red +8.45% CI[+1.86,+16.02] wins 21-13 p=6.18e-02
+cylinder   n=100 lay 0.1537 abl 0.1672 red +8.08% CI[+3.46,+13.01] wins 65-35 p=1.20e-03
+perspective n=100 lay 0.1920 abl 0.2112 red +9.05% CI[+4.25,+14.29] wins 63-36 p=1.03e-03
+combined   n=100 lay 0.3167 abl 0.3442 red +7.99% CI[+3.19,+12.92] wins 70-30 p=2.86e-04
+== Cv
+ALL        n=334 lay 0.2144 abl 0.2229 red +3.84% CI[+0.84,+6.78] wins 187-147 p=4.89e-03
+flat       n= 34 lay 0.1221 abl 0.1193 red -2.33% CI[-15.62,+10.57] wins 16-18 p=8.66e-01
+cylinder   n=100 lay 0.1321 abl 0.1387 red +4.79% CI[+0.06,+9.76] wins 55-45 p=7.32e-02
+perspective n=100 lay 0.1710 abl 0.1697 red -0.73% CI[-6.12,+4.53] wins 54-46 p=9.62e-01
+combined   n=100 lay 0.3714 abl 0.3955 red +6.10% CI[+1.62,+10.47] wins 62-38 p=1.00e-03

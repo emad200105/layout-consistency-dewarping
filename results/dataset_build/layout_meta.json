@@ -1,0 +1,16 @@
+{
+  "layout_version": 1,
+  "n_pages": 47724,
+  "n_annotations": 465596,
+  "n_polygon_points": 10686921,
+  "coord_encoding": "uint16, normalized to the page, 0..65535",
+  "categories": {
+    "1": "text",
+    "2": "title",
+    "3": "list",
+    "4": "table",
+    "5": "figure"
+  },
+  "drop_landscape": true,
+  "built_utc": "2026-09-12T20:05:32Z"
+}

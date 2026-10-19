@@ -1,0 +1,61 @@
+==========================================================================
+1. structural consistency
+==========================================================================
+      149 samples, 48 sources, page 448x576, flow 112x144 float16
+  [PASS] manifest length matches meta   149 vs 149
+  [PASS] flows memmap length matches   
+  [PASS] masks memmap length matches   
+  [PASS] flows file size exact   9,612,288 B == 9,612,288 B
+  [PASS] masks file size exact   
+  [PASS] sample_id is 0..n-1 contiguous   
+  [PASS] every clean_id resolves   max clean_id 47
+
+==========================================================================
+2. decode every sampled record
+==========================================================================
+  [PASS] 20 records decode at correct shapes   
+  [PASS] flow decodes float32   
+  [PASS] mask in [0,1]   
+  [PASS] each source maps to exactly one clean image   
+
+==========================================================================
+3. REPRODUCIBILITY — regenerate from the manifest row alone
+==========================================================================
+  [PASS] 20 samples regenerate byte-identical   20/20
+
+==========================================================================
+4. flow fidelity — stored vs freshly generated full-resolution
+==========================================================================
+      mean 0.0166 px   p95 0.0334   p99 0.3209   max 2.8292
+  [PASS] flow mean error < 0.20 px   
+  [PASS] flow p99 error < 2.0 px   
+
+==========================================================================
+5. the stored flow actually relates the two stored images
+==========================================================================
+      raw difference (dominated by the baked-in shadow):      mean 38.88 grey levels
+      after dividing out the low-frequency gain field:    mean  5.86, worst 13.91
+      (residual is JPEG q90 on both images plus the sub-pixel
+       flow reconstruction error from check 4)
+  [PASS] resampling clean with the flow reproduces the warped page   5.86 grey levels
+
+==========================================================================
+7. the stored flow is invertible — i.e. it can actually rectify
+==========================================================================
+      inversion residual: mean 0.0021 px, p99 0.0141 px, worst 0.0081 px
+      rectified vs clean (gain-corrected): PSNR 24.26 dB
+  [PASS] flow inverts accurately   0.0021 px
+  [PASS] rectification recovers the page   24.26 dB
+
+==========================================================================
+6. dataset composition
+==========================================================================
+      combined           48  (32.21%)
+      cylinder           48  (32.21%)
+      flat                5  ( 3.36%)
+      perspective        48  (32.21%)
+      page coverage: mean 83.86%  min 44.89%  max 100.00%
+      exact zero-flow samples in sample: 0
+
+==========================================================================
+DATASET OK
