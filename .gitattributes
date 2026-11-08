@@ -1,0 +1,5 @@
+# Keep line endings exactly as committed for patches: siftflow_octave.patch
+# contains CRLF lines that must match the CRLF files in the DocUNet eval code.
+*.patch -text
+# Shell scripts must keep LF, even on Windows checkouts, or bash will fail.
+*.sh text eol=lf
