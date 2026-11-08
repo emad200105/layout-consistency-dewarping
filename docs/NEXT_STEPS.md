@@ -83,13 +83,17 @@ variance) would answer the obvious reviewer question directly.
   so the text could be extracted from the source PDFs instead of using
   Tesseract's reading of the flat page as the reference.
 
-## 6. Finishing the paper
+## 6. The paper
 
-- Fill in authors and affiliation (`\author{}` in `paper/main.tex`).
-- Choose a venue and check its page limit; the draft is 8 pages including
-  references.
-- If more seeds or a λ sweep are added, update Table I, Fig. 3 and the
-  abstract, and remove "one seed per arm" from the limitations.
+- **Submitted to Array (Elsevier) in November 2026.** The submitted version (CAS
+  template, 7 authors, required declarations) is in
+  `paper/array_submission/`.
+- `paper/` here is the earlier IEEE-format draft. The results are identical;
+  only the template, the abstract length and small wording points differ.
+- Work to do while the paper is under review: the second seed pair, DIR300
+  and UVDoc evaluation, and a λ sweep (§1, §5). If these are added, update
+  Table 1, Fig. 3 and the abstract, and remove "one seed per arm" from the
+  limitations.
 - `paper/refs_notes.md` explains what every cited paper does relative to ours,
   and which published numbers can be compared with which.
 

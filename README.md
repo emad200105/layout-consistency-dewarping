@@ -4,6 +4,9 @@ Code, trained weights, results and the draft paper for
 **"Layout-Consistency Loss: Free Geometric Supervision for Document Image Dewarping"**
 ([paper/main.pdf](paper/main.pdf)).
 
+> **Submitted to *Array* (Elsevier), November 2026.** The submitted manuscript (preprint,
+> not yet peer reviewed) is in [paper/array_submission/](paper/array_submission/).
+
 Photos of paper documents are bent, tilted and creased. A dewarping model maps
 such a photo back to a flat page. This project trains a small U-Net that predicts
 a dense **backward flow field** for that mapping. On top of the usual flow loss, it
